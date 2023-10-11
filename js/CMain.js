@@ -91,7 +91,15 @@ function CMain(oData){
     this._loadImages = function(){
         s_oSpriteLibrary.init( this._onImagesLoaded,this._onAllImagesLoaded, this );
 
-        s_oSpriteLibrary.addSprite("but_play","./sprites/but_play.png");
+        //---------------hasnain Code--------------------
+		
+		
+		s_oSpriteLibrary.addSprite("deleteBtn","./sprites/delete-button.png");
+		
+		
+		s_oSpriteLibrary.addSprite("but_play","./sprites/but_play.png");
+		
+		
         s_oSpriteLibrary.addSprite("but_play_small","./sprites/but_play_small.png");
         s_oSpriteLibrary.addSprite("msg_box","./sprites/msg_box.png");
         s_oSpriteLibrary.addSprite("msg_box_2","./sprites/msg_box_2.png");

@@ -10,14 +10,29 @@ function CMenu(){
     var _pStartPosAudio;
     var _pStartPosInfo;
     var _pStartPosFullscreen;
+	var odeletebtn;
 
     this._init = function(){
+		
+		s_oCanvas = document.getElementById("canvas");
+        s_oStage = new createjs.Stage(s_oCanvas);
+        createjs.Touch.enable(s_oStage);
+		
+		
         _oBg = createBitmap(s_oSpriteLibrary.getSprite('bg_menu'));
         s_oStage.addChild(_oBg);
+		//--------------------hasnain code----------------
+		
+		var deleteBtn = s_oSpriteLibrary.getSprite('deleteBtn');
+		odeletebtn = new CGfxButton((CANVAS_WIDTH/14),CANVAS_HEIGHT -830,deleteBtn);
+		odeletebtn.addEventListener(ON_MOUSE_UP, this.gameClose, this);
 
+
+		
+		
         var oSprite = s_oSpriteLibrary.getSprite('but_play');
         _oButPlay = new CGfxButton((CANVAS_WIDTH/2),CANVAS_HEIGHT -225,oSprite);
-        _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
+        _oButPlay.addEventListener("click", this._onButPlayRelease, this);
 
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             var oSprite = s_oSpriteLibrary.getSprite('audio_icon');
@@ -55,7 +70,15 @@ function CMenu(){
         this.refreshButtonPos(s_iOffsetX,s_iOffsetY);
 
     };
+	
+	this.gameClose=function(){
+			
+		let message="hello hasnain how are you ";
+		window.parent.postMessage(message, window.parent.location.origin);
 
+	};
+	
+	
     this.unload = function(){
         _oButPlay.unload();
         _oButPlay = null;
