@@ -92,8 +92,6 @@ function CMain(oData){
         s_oSpriteLibrary.init( this._onImagesLoaded,this._onAllImagesLoaded, this );
 
         //---------------hasnain Code--------------------
-		
-		
 		s_oSpriteLibrary.addSprite("deleteBtn","./sprites/delete-button.png");
 		
 		

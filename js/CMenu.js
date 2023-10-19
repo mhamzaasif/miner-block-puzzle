@@ -32,7 +32,7 @@ function CMenu(){
 		
         var oSprite = s_oSpriteLibrary.getSprite('but_play');
         _oButPlay = new CGfxButton((CANVAS_WIDTH/2),CANVAS_HEIGHT -225,oSprite);
-        _oButPlay.addEventListener("click", this._onButPlayRelease, this);
+        _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
 
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             var oSprite = s_oSpriteLibrary.getSprite('audio_icon');
@@ -73,8 +73,11 @@ function CMenu(){
 	
 	this.gameClose=function(){
 			
-		let message="hello hasnain how are you ";
-		window.parent.postMessage(message, window.parent.location.origin);
+	//	let message="hello hasnain how are you ";
+	//	var targetOrigin = "https://playcanv.as"; 
+
+	///	window.parent.postMessage(message, targetOrigin);
+		window.top.postMessage("Playcanvas_Ready", "*");
 
 	};
 	
